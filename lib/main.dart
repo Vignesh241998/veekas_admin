@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:veekas_ecommerce_app/routes/app_router.dart';
-
+import 'core/routes/app_router.dart';
+import 'core/storage/preference_service.dart';
 import 'core/theme/app_theme.dart';
 import 'core/utils/app_strings.dart';
 import 'features/auth/view/splash_screen.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await PreferenceService.init();
 
   runApp(
     const ProviderScope(
@@ -23,11 +25,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return MaterialApp.router(
+    return MaterialApp(
       title: AppStrings.appName,
+
       debugShowCheckedModeBanner: false,
+
       theme: AppTheme.lightTheme,
-      routerConfig: AppRouter.router,
+
+      initialRoute: "/",
+
+      onGenerateRoute: AppRouter.generateRoute,
     );
 
     // return MaterialApp(

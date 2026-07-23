@@ -1,13 +1,20 @@
 class AppConstants {
   AppConstants._();
 
+  // App
+  static const String appName = 'Veekas Admin';
+
+  // Screen Sizes
   static const double desktopWidth = 1200;
+  static const double tabletWidth = 768;
 
-  static const double tabletWidth = 800;
+  // UI
+  static const double defaultPadding = 16;
+  static const double defaultRadius = 10;
 
-  static const double mobileWidth = 600;
+  // Animation
+  static const Duration animationDuration = Duration(milliseconds: 300);
 
-  static const double padding = 20;
-
-  static const double radius = 12;
+  // Pagination
+  static const int pageSize = 10;
 }

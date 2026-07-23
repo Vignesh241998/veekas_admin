@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
 
+import 'app_constants.dart';
+
 class Responsive {
+  Responsive._();
 
-  static bool isDesktop(BuildContext context) =>
-      MediaQuery.of(context).size.width >= 1200;
+  static bool isDesktop(BuildContext context) {
+    return MediaQuery.of(context).size.width >=
+        AppConstants.desktopWidth;
+  }
 
-  static bool isTablet(BuildContext context) =>
-      MediaQuery.of(context).size.width >= 800 &&
-          MediaQuery.of(context).size.width < 1200;
+  static bool isTablet(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
 
-  static bool isMobile(BuildContext context) =>
-      MediaQuery.of(context).size.width < 800;
+    return width >= AppConstants.tabletWidth &&
+        width < AppConstants.desktopWidth;
+  }
+
+  static bool isMobile(BuildContext context) {
+    return MediaQuery.of(context).size.width <
+        AppConstants.tabletWidth;
+  }
 }
