@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:veekas_ecommerce_app/features/Admin_Home_Screen/admin_home_screen.dart';
 
 import '../../features/auth/view/login_screen.dart';
 import '../../features/auth/view/register_screen.dart';
 import '../../features/auth/view/splash_screen.dart';
+import '../../features/customer/home/view/customer_home_screen.dart';
 import '../../features/dashboard/view/dashboard_screen.dart';
 
 class AppRouter {
@@ -49,8 +51,14 @@ class AppRouter {
           builder: (_) => const DashboardScreen(),
         );
 
-
-
+      case '/customer-home':
+        return MaterialPageRoute(
+          builder: (_) => const CustomerHomeScreen(),
+        );
+      case "/admin-home-page":
+        return MaterialPageRoute(
+          builder: (_) => const AdminHomeScreen(),
+        );
       default:
 
         return MaterialPageRoute(

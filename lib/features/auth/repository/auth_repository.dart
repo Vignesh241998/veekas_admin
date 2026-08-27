@@ -10,9 +10,9 @@ class AuthRepository {
 
   AuthRepository(this._apiService);
 
-  // ===========================
-  // Login
-  // ===========================
+  // ============================================================
+  // LOGIN
+  // ============================================================
 
   Future<AuthResponseModel> login({
     required String email,
@@ -27,21 +27,60 @@ class AuthRepository {
         },
       );
 
-      final authResponse = AuthResponseModel.fromJson(response.data);
+      // ============================================================
+      // PARSE API RESPONSE
+      // ============================================================
 
-      await PreferenceService.saveToken(authResponse.token);
+      final authResponse =
+      AuthResponseModel.fromJson(
+        response.data,
+      );
+
+      // ============================================================
+      // SAVE TOKEN
+      // ============================================================
+
+      await PreferenceService.saveToken(
+        authResponse.token,
+      );
+
+      // ============================================================
+      // SAVE USER ID
+      // ============================================================
+
+      await PreferenceService.saveUserId(
+        authResponse.user.id,
+      );
+
+      // ============================================================
+      // SAVE USER ROLE
+      // ============================================================
+
+      await PreferenceService.saveUserRole(
+        authResponse.user.role,
+      );
+
+      // ============================================================
+      // RETURN RESPONSE
+      // ============================================================
 
       return authResponse;
+
     } on DioException catch (e) {
       throw Exception(
-        e.response?.data["message"] ?? "Login Failed",
+        e.response?.data["message"] ??
+            "Login Failed",
+      );
+    } catch (e) {
+      throw Exception(
+        "Login response parsing failed: $e",
       );
     }
   }
 
-  // ===========================
-  // Register
-  // ===========================
+  // ============================================================
+  // REGISTER
+  // ============================================================
 
   Future<AuthResponseModel> register({
     required String firstName,
@@ -51,7 +90,8 @@ class AuthRepository {
     required String password,
   }) async {
     try {
-      final Response response = await _apiService.post(
+      final Response response =
+      await _apiService.post(
         ApiConstants.register,
         data: {
           "first_name": firstName,
@@ -62,47 +102,79 @@ class AuthRepository {
         },
       );
 
-      final authResponse = AuthResponseModel.fromJson(response.data);
+      final authResponse =
+      AuthResponseModel.fromJson(
+        response.data,
+      );
 
-      await PreferenceService.saveToken(authResponse.token);
+      // ============================================================
+      // SAVE TOKEN
+      // ============================================================
+
+      await PreferenceService.saveToken(
+        authResponse.token,
+      );
+
+      // ============================================================
+      // SAVE USER ID
+      // ============================================================
+
+      await PreferenceService.saveUserId(
+        authResponse.user.id,
+      );
+
+      // ============================================================
+      // SAVE USER ROLE
+      // ============================================================
+
+      await PreferenceService.saveUserRole(
+        authResponse.user.role,
+      );
 
       return authResponse;
+
     } on DioException catch (e) {
       throw Exception(
-        e.response?.data["message"] ?? "Registration Failed",
+        e.response?.data["message"] ??
+            "Registration Failed",
+      );
+    } catch (e) {
+      throw Exception(
+        "Registration response parsing failed: $e",
       );
     }
   }
 
-  // ===========================
-// Logout
-// ===========================
+  // ============================================================
+  // LOGOUT
+  // ============================================================
 
   Future<void> logout() async {
     try {
-      await _apiService.post(ApiConstants.logout);
+      await _apiService.post(
+        ApiConstants.logout,
+      );
     } on DioException catch (e) {
       throw Exception(
-        e.response?.data["message"] ?? "Logout Failed",
+        e.response?.data["message"] ??
+            "Logout Failed",
       );
     }
   }
 
-  // ===========================
-  // Login Status
-  // ===========================
+  // ============================================================
+  // LOGIN STATUS
+  // ============================================================
 
   bool isLoggedIn() {
     return PreferenceService.isLoggedIn();
   }
 
-  // ===========================
-  // Token
-  // ===========================
+  // ============================================================
+  // TOKEN
+  // ============================================================
 
   String? getToken() {
     return PreferenceService.getToken();
   }
-
-
 }

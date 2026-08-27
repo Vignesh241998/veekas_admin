@@ -7,7 +7,8 @@ import '../model/auth_response_model.dart';
 import '../repository/auth_repository.dart';
 
 /// Repository Provider
-final authRepositoryProvider = Provider<AuthRepository>((ref) {
+final authRepositoryProvider =
+Provider<AuthRepository>((ref) {
   return AuthRepository(
     ref.read(apiServiceProvider),
   );
@@ -15,7 +16,9 @@ final authRepositoryProvider = Provider<AuthRepository>((ref) {
 
 /// ViewModel Provider
 final authViewModelProvider =
-StateNotifierProvider<AuthViewModel, AsyncValue<AuthResponseModel?>>(
+StateNotifierProvider<
+    AuthViewModel,
+    AsyncValue<AuthResponseModel?>>(
       (ref) {
     return AuthViewModel(
       ref.read(authRepositoryProvider),
@@ -23,16 +26,41 @@ StateNotifierProvider<AuthViewModel, AsyncValue<AuthResponseModel?>>(
   },
 );
 
-class AuthViewModel extends StateNotifier<AsyncValue<AuthResponseModel?>> {
+class AuthViewModel
+    extends StateNotifier<
+        AsyncValue<AuthResponseModel?>> {
   final AuthRepository _repository;
 
   AuthViewModel(this._repository)
-      : super(const AsyncValue.data(null));
+      : super(
+    const AsyncValue.data(null),
+  );
 
-  // ==========================
-  // Login
-  // ==========================
+  // ============================================================
+  // LOGIN
+  // ============================================================
 
+ /* Future<void> login({
+    required String email,
+    required String password,
+  }) async {
+    state = const AsyncLoading();
+
+    try {
+      final response =
+      await _repository.login(
+        email: email,
+        password: password,
+      );
+
+      state = AsyncData(response);
+    } catch (e) {
+      state = AsyncError(
+        e,
+        StackTrace.current,
+      );
+    }
+  }*/
   Future<void> login({
     required String email,
     required String password,
@@ -45,15 +73,38 @@ class AuthViewModel extends StateNotifier<AsyncValue<AuthResponseModel?>> {
         password: password,
       );
 
+      // ============================================================
+      // SAVE LOGIN DATA
+      // ============================================================
+
+      await PreferenceService.saveToken(
+        response.token,
+      );
+
+      await PreferenceService.saveUserId(
+        response.user.id,
+      );
+
+      await PreferenceService.saveUserRole(
+        response.user.role,
+      );
+
+      // ============================================================
+      // UPDATE STATE
+      // ============================================================
+
       state = AsyncData(response);
+
     } catch (e) {
-      state = AsyncError(e, StackTrace.current);
+      state = AsyncError(
+        e,
+        StackTrace.current,
+      );
     }
   }
-
-  // ==========================
-  // Register
-  // ==========================
+  // ============================================================
+  // REGISTER
+  // ============================================================
 
   Future<void> register({
     required String firstName,
@@ -65,7 +116,8 @@ class AuthViewModel extends StateNotifier<AsyncValue<AuthResponseModel?>> {
     state = const AsyncLoading();
 
     try {
-      final response = await _repository.register(
+      final response =
+      await _repository.register(
         firstName: firstName,
         lastName: lastName,
         mobile: mobile,
@@ -75,34 +127,41 @@ class AuthViewModel extends StateNotifier<AsyncValue<AuthResponseModel?>> {
 
       state = AsyncData(response);
     } catch (e) {
-      state = AsyncError(e, StackTrace.current);
+      state = AsyncError(
+        e,
+        StackTrace.current,
+      );
     }
   }
 
-  // ==========================
-  // Logout
-  // ==========================
-
-  // Future<void> logout() async {
-  //   await _repository.logout();
-  //
-  //   state = const AsyncData(null);
-  // }
-
-  // ==========================
-  // Login Status
-  // ==========================
+  // ============================================================
+  // LOGIN STATUS
+  // ============================================================
 
   bool isLoggedIn() {
     return _repository.isLoggedIn();
   }
 
+  // ============================================================
+  // TOKEN
+  // ============================================================
+
   String? getToken() {
     return _repository.getToken();
   }
 
+  // ============================================================
+  // LOGOUT
+  // ============================================================
+
   Future<void> logout() async {
     await _repository.logout();
+
     await PreferenceService.removeToken();
+    await PreferenceService.removeUserId();
+
+    await PreferenceService.removeAddressId();
+    await PreferenceService.removeAddress();
+    await PreferenceService.removeUserRole();
   }
 }

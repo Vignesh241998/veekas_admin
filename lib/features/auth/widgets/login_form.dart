@@ -64,6 +64,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
     state.when(
       data: (data) {
 
+
         if(data != null){
 
           AppSnackbar.success(
@@ -72,10 +73,19 @@ class _LoginFormState extends ConsumerState<LoginForm> {
           );
 
 
-          Navigator.pushReplacementNamed(
-            context,
-            "/dashboard",
-          );
+          if(data.user.role == "admin".toString().toLowerCase()){
+            Navigator.pushReplacementNamed(
+              context,
+              "/admin-home-page",
+            );
+          } else{
+            Navigator.pushNamed(
+              context,
+              '/customer-home',
+            );
+          }
+
+
 
         }
 

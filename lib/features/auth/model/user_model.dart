@@ -7,6 +7,7 @@ class UserModel {
   final String membershipType;
   final String createdAt;
   final String updatedAt;
+  final String role;
 
   const UserModel({
     required this.id,
@@ -17,6 +18,7 @@ class UserModel {
     required this.membershipType,
     required this.createdAt,
     required this.updatedAt,
+    required this.role,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -29,6 +31,7 @@ class UserModel {
       membershipType: json['membership_type'] ?? '',
       createdAt: json['created_at'] ?? '',
       updatedAt: json['updated_at'] ?? '',
+      role: json['role'] ?? '',
     );
   }
 
@@ -42,6 +45,7 @@ class UserModel {
       "membership_type": membershipType,
       "created_at": createdAt,
       "updated_at": updatedAt,
+      "role": role,
     };
   }
 }

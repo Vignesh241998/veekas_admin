@@ -90,13 +90,13 @@ class AdminSidebar extends StatelessWidget {
                 _menuItem(
                   index: 7,
                   icon: Icons.discount_outlined,
-                  title: "Coupons",
+                  title: "Product Images",
                 ),
 
                 _menuItem(
                   index: 8,
                   icon: Icons.bar_chart_outlined,
-                  title: "Reports",
+                  title: "Product Variants",
                 ),
 
                 _menuItem(

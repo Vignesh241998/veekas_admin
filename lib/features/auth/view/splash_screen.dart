@@ -38,46 +38,86 @@ class _SplashScreenState
 
 
 
+  // Future<void> checkLogin() async {
+  //
+  //
+  //   await Future.delayed(
+  //     const Duration(seconds: 2),
+  //   );
+  //
+  //
+  //
+  //   final isLoggedIn =
+  //   PreferenceService.isLoggedIn();
+  //   final role =  PreferenceService.getUserRole();
+  //
+  //
+  //
+  //   if(!mounted) return;
+  //
+  //   if(isLoggedIn){
+  //
+  //     if(role == "admin") {
+  //       Navigator.pushReplacementNamed(
+  //         context,
+  //         // "/dashboard",
+  //         "/customer-home",
+  //       );
+  //     } else{
+  //       Navigator.pushReplacementNamed(
+  //         context,
+  //         "/dashboard",
+  //         // "/customer-home",
+  //       );
+  //     }
+  //
+  //   }else{
+  //
+  //
+  //     Navigator.pushReplacementNamed(
+  //       context,
+  //       "/login",
+  //     );
+  //
+  //
+  //   }
+  //
+  // }
   Future<void> checkLogin() async {
-
-
     await Future.delayed(
       const Duration(seconds: 2),
     );
 
-
-
     final isLoggedIn =
     PreferenceService.isLoggedIn();
 
+    if (!mounted) return;
 
-
-    if(!mounted) return;
-
-
-
-    if(isLoggedIn){
-
-
-      Navigator.pushReplacementNamed(
-        context,
-        "/dashboard",
-      );
-
-
-    }else{
-
-
+    if (!isLoggedIn) {
       Navigator.pushReplacementNamed(
         context,
         "/login",
       );
-
-
+      return;
     }
 
-  }
+    final role =
+    PreferenceService.getUserRole();
 
+    if (!mounted) return;
+
+    if (role?.toLowerCase() == "admin") {
+      Navigator.pushReplacementNamed(
+        context,
+        "/admin-home-page",
+      );
+    } else {
+      Navigator.pushReplacementNamed(
+        context,
+        "/customer-home",
+      );
+    }
+  }
 
 
 
