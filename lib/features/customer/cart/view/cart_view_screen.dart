@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../Address/view/customer_checkout_screen.dart';
+import '../../address/view/customer_checkout_screen.dart';
 import '../viewmodal/cart_view_modal.dart';
 import '../model/cart_model.dart';
 

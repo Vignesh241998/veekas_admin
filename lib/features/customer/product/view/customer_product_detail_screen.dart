@@ -8,7 +8,7 @@ import '../../../product_image/viewmodal/product_view_modal.dart';
 
 import '../../../product_variant/modal/product_variant_modal.dart';
 import '../../../product_variant/viewmodal/product_view_modal.dart';
-import '../../Address/view/customer_checkout_screen.dart';
+import '../../address/view/customer_checkout_screen.dart';
 import '../../cart/model/cart_model.dart';
 import '../../cart/view/cart_view_screen.dart';
 import '../../cart/viewmodal/cart_view_modal.dart';
