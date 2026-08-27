@@ -101,7 +101,7 @@ class ShipmentRepository {
         }
 
         throw Exception(
-          'Shipment details not found.',
+          'shipment details not found.',
         );
       }
 

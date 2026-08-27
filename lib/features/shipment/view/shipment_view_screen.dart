@@ -96,7 +96,7 @@ class _ShipmentScreenState
           .showSnackBar(
         const SnackBar(
           content: Text(
-            'Shipment created successfully.',
+            'shipment created successfully.',
           ),
         ),
       );
@@ -256,7 +256,7 @@ class _ShipmentScreenState
           .showSnackBar(
         const SnackBar(
           content: Text(
-            'Shipment cancelled successfully.',
+            'shipment cancelled successfully.',
           ),
         ),
       );

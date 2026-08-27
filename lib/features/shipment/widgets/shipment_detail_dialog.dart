@@ -91,7 +91,7 @@ class ShipmentDetailDialog extends StatelessWidget {
 
           const Expanded(
             child: Text(
-              'Shipment Details',
+              'shipment Details',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w800,
@@ -118,7 +118,7 @@ class ShipmentDetailDialog extends StatelessWidget {
 
   Widget _buildShipmentInformation() {
     return _buildSection(
-      title: 'Shipment Information',
+      title: 'shipment Information',
       icon: Icons.local_shipping_outlined,
       child: Column(
         children: [
@@ -141,7 +141,7 @@ class ShipmentDetailDialog extends StatelessWidget {
           ),
 
           _buildInfoRow(
-            'Shipment ID',
+            'shipment ID',
             shipment.shipmentId,
           ),
         ],

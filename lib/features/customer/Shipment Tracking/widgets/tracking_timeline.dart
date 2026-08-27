@@ -95,10 +95,10 @@ class TrackingTimeline extends StatelessWidget {
         return 'Order Packed';
 
       case 'SHIPMENT_CREATED':
-        return 'Shipment Created';
+        return 'shipment Created';
 
       case 'SHIPPED':
-        return 'Shipment Shipped';
+        return 'shipment Shipped';
 
       case 'OUT_FOR_DELIVERY':
         return 'Out for Delivery';

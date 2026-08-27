@@ -95,7 +95,7 @@ class _CancelShipmentDialogState
 
           const Expanded(
             child: Text(
-              'Cancel Shipment?',
+              'Cancel shipment?',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight:

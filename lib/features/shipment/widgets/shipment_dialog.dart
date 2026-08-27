@@ -109,7 +109,7 @@ class _CreateShipmentDialogState
 
           const Expanded(
             child: Text(
-              'Create Shipment',
+              'Create shipment',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w800,

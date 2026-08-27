@@ -39,7 +39,7 @@ class _AdminHomeScreenState
     "Customers",
     "Product Image",
     "Variants",
-    "Shipment",
+    "shipment",
     "Logout",
   ];
 

@@ -196,7 +196,7 @@ class _OrderScreenState extends ConsumerState<OrderScreen> {
                     backgroundColor:
                     const Color(0xFF16A34A),
                     content: Text(
-                      'Shipment created successfully for ${order.orderNumber}',
+                      'shipment created successfully for ${order.orderNumber}',
                     ),
                   ),
                 );
@@ -246,7 +246,7 @@ class _OrderScreenState extends ConsumerState<OrderScreen> {
 
                   const Expanded(
                     child: Text(
-                      'Create Shipment',
+                      'Create shipment',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w800,
@@ -372,7 +372,7 @@ class _OrderScreenState extends ConsumerState<OrderScreen> {
 
                           Expanded(
                             child: Text(
-                              'Shipment details such as tracking number and AWB number will be generated automatically.',
+                              'shipment details such as tracking number and AWB number will be generated automatically.',
                               style: TextStyle(
                                 fontSize: 12,
                                 height: 1.4,

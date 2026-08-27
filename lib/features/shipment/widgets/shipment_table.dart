@@ -178,7 +178,7 @@ class ShipmentTable extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Tooltip(
-                            message: 'View Shipment',
+                            message: 'view shipment',
                             child: IconButton(
                               onPressed: () {
                                 onView(shipment);
@@ -210,7 +210,7 @@ class ShipmentTable extends StatelessWidget {
                           ),
 
                           Tooltip(
-                            message: 'Cancel Shipment',
+                            message: 'Cancel shipment',
                             child: IconButton(
                               onPressed: shipment
                                   .shippingStatus

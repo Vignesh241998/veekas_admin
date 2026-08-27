@@ -38,7 +38,7 @@ class TrackingStatusCard extends StatelessWidget {
             children: [
               const Expanded(
                 child: Text(
-                  'Shipment Status',
+                  'shipment Status',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight:

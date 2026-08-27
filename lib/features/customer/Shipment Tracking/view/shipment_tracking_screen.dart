@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../View Modal/shippment_track_view_modal.dart';
+import '../viewmodal/shippment_track_view_modal.dart';
 import '../Widgets/tracking_status_card.dart';
 
 class ShipmentTrackingScreen extends ConsumerStatefulWidget {
@@ -294,7 +294,7 @@ class _ShipmentTrackingScreenState
           const SizedBox(height: 16),
 
           const Text(
-            'Shipment not found',
+            'shipment not found',
             style: TextStyle(
               fontSize: 18,
               fontWeight:
