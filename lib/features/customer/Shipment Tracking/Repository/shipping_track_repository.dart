@@ -30,13 +30,13 @@ class ShipmentTrackingRepository {
         }
 
         throw Exception(
-          'shipment tracking details not found.',
+          'Shipment tracking details not found.',
         );
       }
 
       throw Exception(
         data['message'] ??
-            'shipment tracking details not found.',
+            'Shipment tracking details not found.',
       );
     } on DioException catch (e) {
       final errorData = e.response?.data;
@@ -49,16 +49,16 @@ class ShipmentTrackingRepository {
         throw Exception(
           errorData is Map
               ? errorData['message'] ??
-              'shipment not found. Please check your tracking number.'
-              : 'shipment not found. Please check your tracking number.',
+              'Shipment not found. Please check your tracking number.'
+              : 'Shipment not found. Please check your tracking number.',
         );
       }
 
       throw Exception(
         errorData is Map
             ? errorData['message'] ??
-            'Unable to track shipment.'
-            : 'Unable to track shipment.',
+            'Unable to track Shipment.'
+            : 'Unable to track Shipment.',
       );
     }
   }

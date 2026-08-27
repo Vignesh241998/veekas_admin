@@ -1,9 +1,9 @@
 // import 'package:flutter/material.dart';
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 //
-// import '../modal/product_variant_modal.dart';
+// import '../Modal/product_variant_modal.dart';
 // import '../viewmodal/product_view_modal.dart';
-// import '../widgets/variant_form_dialog.dart';
+// import '../Widgets/variant_form_dialog.dart';
 //
 // class ProductVariantScreen
 //     extends ConsumerStatefulWidget {

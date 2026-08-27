@@ -39,7 +39,7 @@ class TrackingSearchCard extends StatelessWidget {
           const SizedBox(height: 8),
 
           const Text(
-            'Enter your tracking number to check the current shipment status.',
+            'Enter your tracking number to check the current Shipment status.',
             style: TextStyle(
               fontSize: 13,
               height: 1.5,

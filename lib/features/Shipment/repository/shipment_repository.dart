@@ -63,7 +63,7 @@ class ShipmentRepository {
       if (data['status'] != true) {
         throw Exception(
           data['message'] ??
-              'Unable to create shipment.',
+              'Unable to create Shipment.',
         );
       }
     } on DioException catch (e) {
@@ -72,8 +72,8 @@ class ShipmentRepository {
       throw Exception(
         errorData is Map
             ? errorData['message'] ??
-            'Unable to create shipment.'
-            : 'Unable to create shipment.',
+            'Unable to create Shipment.'
+            : 'Unable to create Shipment.',
       );
     }
   }
@@ -101,13 +101,13 @@ class ShipmentRepository {
         }
 
         throw Exception(
-          'shipment details not found.',
+          'Shipment details not found.',
         );
       }
 
       throw Exception(
         data['message'] ??
-            'Unable to load shipment details.',
+            'Unable to load Shipment details.',
       );
     } on DioException catch (e) {
       final errorData = e.response?.data;
@@ -115,8 +115,8 @@ class ShipmentRepository {
       throw Exception(
         errorData is Map
             ? errorData['message'] ??
-            'Unable to load shipment details.'
-            : 'Unable to load shipment details.',
+            'Unable to load Shipment details.'
+            : 'Unable to load Shipment details.',
       );
     }
   }
@@ -142,7 +142,7 @@ class ShipmentRepository {
       if (data['status'] != true) {
         throw Exception(
           data['message'] ??
-              'Unable to update shipment status.',
+              'Unable to update Shipment status.',
         );
       }
     } on DioException catch (e) {
@@ -151,8 +151,8 @@ class ShipmentRepository {
       throw Exception(
         errorData is Map
             ? errorData['message'] ??
-            'Unable to update shipment status.'
-            : 'Unable to update shipment status.',
+            'Unable to update Shipment status.'
+            : 'Unable to update Shipment status.',
       );
     }
   }
@@ -174,7 +174,7 @@ class ShipmentRepository {
       if (data['status'] != true) {
         throw Exception(
           data['message'] ??
-              'Unable to cancel shipment.',
+              'Unable to cancel Shipment.',
         );
       }
     } on DioException catch (e) {
@@ -183,8 +183,8 @@ class ShipmentRepository {
       throw Exception(
         errorData is Map
             ? errorData['message'] ??
-            'Unable to cancel shipment.'
-            : 'Unable to cancel shipment.',
+            'Unable to cancel Shipment.'
+            : 'Unable to cancel Shipment.',
       );
     }
   }

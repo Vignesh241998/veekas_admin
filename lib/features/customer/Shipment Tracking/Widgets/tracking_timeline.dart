@@ -95,10 +95,10 @@ class TrackingTimeline extends StatelessWidget {
         return 'Order Packed';
 
       case 'SHIPMENT_CREATED':
-        return 'shipment Created';
+        return 'Shipment Created';
 
       case 'SHIPPED':
-        return 'shipment Shipped';
+        return 'Shipment Shipped';
 
       case 'OUT_FOR_DELIVERY':
         return 'Out for Delivery';
@@ -212,7 +212,7 @@ class TrackingTimeline extends StatelessWidget {
                   const SizedBox(height: 4),
 
                   const Text(
-                    'Current shipment status',
+                    'Current Shipment status',
                     style: TextStyle(
                       fontSize: 12,
                       color: Color(

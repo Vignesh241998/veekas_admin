@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:veekas_ecommerce_app/features/customer/Shipment%20Tracking/view/shipment_tracking_screen.dart';
 import 'package:veekas_ecommerce_app/features/customer/order/view/customer_order_history_screen.dart';
 
-import '../../../Shipment/view/shipment_view_screen.dart';
 import '../../../category/model/category_model.dart';
 import '../../../product/Modal/product_modal.dart';
 import '../../category/viewmodal/customer_category_ viewmodal.dart';

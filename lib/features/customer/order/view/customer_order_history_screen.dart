@@ -1,9 +1,9 @@
 /*
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:veekas_ecommerce_app/features/customer/shipment%20Tracking/view/shipment_tracking_screen.dart';
+import 'package:veekas_ecommerce_app/features/customer/Shipment%20Tracking/view/shipment_tracking_screen.dart';
 
-import '../../../orders/modal/order_modal.dart';
+import '../../../orders/Modal/order_modal.dart';
 import '../viewmodal/order_view_modal.dart';
 
 class CustomerOrderHistoryScreen extends ConsumerWidget {

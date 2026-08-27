@@ -109,7 +109,7 @@ class _CreateShipmentDialogState
 
           const Expanded(
             child: Text(
-              'Create shipment',
+              'Create Shipment',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w800,
@@ -225,7 +225,7 @@ class _CreateShipmentDialogState
 
                   Expanded(
                     child: Text(
-                      'Tracking number, AWB number and shipment ID will be generated automatically.',
+                      'Tracking number, AWB number and Shipment ID will be generated automatically.',
                       style: TextStyle(
                         fontSize: 12,
                         color: Color(0xFF6B6B74),

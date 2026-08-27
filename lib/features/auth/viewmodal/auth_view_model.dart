@@ -6,7 +6,7 @@ import '../../../shared/providers/app_providers.dart';
 import '../model/auth_response_model.dart';
 import '../repository/auth_repository.dart';
 
-/// repository Provider
+/// Repository Provider
 final authRepositoryProvider =
 Provider<AuthRepository>((ref) {
   return AuthRepository(
