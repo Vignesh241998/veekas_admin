@@ -95,7 +95,7 @@ class _CancelShipmentDialogState
 
           const Expanded(
             child: Text(
-              'Cancel Shipment?',
+              'Cancel shipment?',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight:
@@ -115,7 +115,7 @@ class _CancelShipmentDialogState
           CrossAxisAlignment.start,
           children: [
             const Text(
-              'Are you sure you want to cancel this Shipment?',
+              'Are you sure you want to cancel this shipment?',
               style: TextStyle(
                 fontSize: 14,
                 height: 1.5,
@@ -184,7 +184,7 @@ class _CancelShipmentDialogState
             const SizedBox(height: 16),
 
             const Text(
-              'The Shipment will become inactive and the related order status will be changed to CANCELLED.',
+              'The shipment will become inactive and the related order status will be changed to CANCELLED.',
               style: TextStyle(
                 fontSize: 12,
                 color: Colors.redAccent,

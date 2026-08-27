@@ -184,7 +184,7 @@ class OrderTable extends StatelessWidget {
                           // ======================================================
 
                           Tooltip(
-                            message: 'view Order',
+                            message: 'View Order',
                             child: IconButton(
                               onPressed: () {
                                 onView(order);
@@ -224,7 +224,7 @@ class OrderTable extends StatelessWidget {
 
                           if (canCreateShipment)
                             Tooltip(
-                              message: 'Create Shipment',
+                              message: 'Create shipment',
                               child: IconButton(
                                 onPressed: () {
                                   onCreateShipment(order);
@@ -244,7 +244,7 @@ class OrderTable extends StatelessWidget {
 
                           if (shipmentAlreadyCreated)
                             const Tooltip(
-                              message: 'Shipment Already Created',
+                              message: 'shipment Already Created',
                               child: Icon(
                                 Icons.local_shipping_rounded,
                                 color: Color(0xFF9CA3AF),

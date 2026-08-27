@@ -228,7 +228,7 @@ class _ShipmentTrackingScreenState
           SizedBox(height: 16),
 
           Text(
-            'Track your Shipment',
+            'Track your shipment',
             style: TextStyle(
               fontSize: 18,
               fontWeight:
@@ -239,7 +239,7 @@ class _ShipmentTrackingScreenState
           SizedBox(height: 8),
 
           Text(
-            'Enter your tracking number above to see the latest Shipment status.',
+            'Enter your tracking number above to see the latest shipment status.',
             textAlign:
             TextAlign.center,
             style: TextStyle(
@@ -294,7 +294,7 @@ class _ShipmentTrackingScreenState
           const SizedBox(height: 16),
 
           const Text(
-            'Shipment not found',
+            'shipment not found',
             style: TextStyle(
               fontSize: 18,
               fontWeight:

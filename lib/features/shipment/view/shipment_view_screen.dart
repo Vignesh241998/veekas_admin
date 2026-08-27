@@ -54,7 +54,7 @@ class _ShipmentScreenState
           .showSnackBar(
         const SnackBar(
           content: Text(
-            'Please create the Shipment from the Orders screen.',
+            'Please create the shipment from the Orders screen.',
           ),
         ),
       );
@@ -96,7 +96,7 @@ class _ShipmentScreenState
           .showSnackBar(
         const SnackBar(
           content: Text(
-            'Shipment created successfully.',
+            'shipment created successfully.',
           ),
         ),
       );
@@ -256,7 +256,7 @@ class _ShipmentScreenState
           .showSnackBar(
         const SnackBar(
           content: Text(
-            'Shipment cancelled successfully.',
+            'shipment cancelled successfully.',
           ),
         ),
       );
@@ -424,7 +424,7 @@ class _ShipmentScreenState
               const SizedBox(height: 5),
 
               Text(
-                '$totalShipments Shipment${totalShipments == 1 ? '' : 's'}',
+                '$totalShipments shipment${totalShipments == 1 ? '' : 's'}',
                 style: const TextStyle(
                   fontSize: 13,
                   color:

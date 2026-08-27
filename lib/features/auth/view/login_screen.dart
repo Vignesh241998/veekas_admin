@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
         builder: (context, constraints) {
 
 
-          // Mobile view
+          // Mobile View
 
           if (constraints.maxWidth < 900) {
 
@@ -38,7 +38,7 @@ class LoginScreen extends StatelessWidget {
 
 
 
-          // Web / Desktop view
+          // Web / Desktop View
 
           return Row(
 
