@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:veekas_ecommerce_app/features/product_image/view/product_image_add_dialog.dart';
 
-import '../../product/ViewModal/product_view_modal.dart';
+import '../../product/viewmodal/product_view_modal.dart';
 import '../modal/product_image_modal.dart';
 import '../viewmodal/product_view_modal.dart';
 import '../widgets/product_image_table.dart';

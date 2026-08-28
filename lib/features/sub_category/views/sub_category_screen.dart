@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/theme/app_colors.dart';
-import '../ViewModal/sub_category_view_model.dart';
+import '../viewmodal/sub_category_view_model.dart';
 import '../widgets/sub_category_table.dart';
 import 'add_sub_category_dialog.dart';
 

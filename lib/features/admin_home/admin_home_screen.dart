@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:veekas_ecommerce_app/features/Shipment/view/shipment_view_screen.dart';
-import 'package:veekas_ecommerce_app/features/brand/View/brand_screen.dart';
+import 'package:veekas_ecommerce_app/features/shipment/view/shipment_view_screen.dart';
+import 'package:veekas_ecommerce_app/features/brand/view/brand_screen.dart';
 import 'package:veekas_ecommerce_app/features/orders/view/view_screen.dart';
-import 'package:veekas_ecommerce_app/features/product/View/product_screen.dart';
+import 'package:veekas_ecommerce_app/features/product/view/product_screen.dart';
 import 'package:veekas_ecommerce_app/features/product_image/view/product_image_screen.dart';
 import 'package:veekas_ecommerce_app/features/product_variant/view/product_variat_screen.dart';
-import 'package:veekas_ecommerce_app/features/sub_category/Views/sub_category_screen.dart';
+import 'package:veekas_ecommerce_app/features/sub_category/views/sub_category_screen.dart';
 
 import '../../../core/theme/app_colors.dart';
 import '../../../core/widgets/confirmation_dialog.dart';

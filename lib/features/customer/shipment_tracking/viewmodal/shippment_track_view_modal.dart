@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 
-import '../Repository/shipping_track_repository.dart';
+import '../repository/shipping_track_repository.dart';
 import '../shipment_tracking_modal.dart';
 
 

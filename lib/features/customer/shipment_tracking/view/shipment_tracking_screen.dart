@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../widgets/tracking_status_card.dart';
 import '../viewmodal/shippment_track_view_modal.dart';
-import '../Widgets/tracking_status_card.dart';
 
 class ShipmentTrackingScreen extends ConsumerStatefulWidget {
   final String trackno;

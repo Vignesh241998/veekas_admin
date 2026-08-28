@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../category/model/category_model.dart';
 import '../../category/viewmodel/category_view_model.dart';
-import '../ViewModal/sub_category_view_model.dart';
+import '../viewmodal/sub_category_view_model.dart';
 
 class AddSubCategoryDialog extends ConsumerStatefulWidget {
   const AddSubCategoryDialog({
