@@ -4,7 +4,6 @@ import 'core/routes/app_router.dart';
 import 'core/storage/preference_service.dart';
 import 'core/theme/app_theme.dart';
 import 'core/utils/app_strings.dart';
-import 'features/auth/view/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

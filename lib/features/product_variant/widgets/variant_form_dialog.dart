@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../product/Modal/product_modal.dart';
+import '../../product/modal/product_modal.dart';
 import '../../product/repository/product_repository.dart';
 
 import '../modal/product_variant_modal.dart';

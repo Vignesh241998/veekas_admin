@@ -131,8 +131,7 @@ class SubCategoryScreen extends ConsumerWidget {
                   // -----------------------------------------------
 
                   return SubCategoryTable(
-                    subCategories:
-                    subCategories,
+                    subCategories: subCategories,
                   );
                 },
               ),

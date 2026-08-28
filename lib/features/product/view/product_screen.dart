@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/theme/app_colors.dart';
-import '../ViewModal/add_product_dialog.dart';
-import '../ViewModal/product_view_modal.dart';
+import '../viewmodal/add_product_dialog.dart';
+import '../viewmodal/product_view_modal.dart';
 import '../widgets/product_table.dart';
 
 class ProductScreen extends ConsumerWidget {

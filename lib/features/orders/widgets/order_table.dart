@@ -184,7 +184,7 @@ class OrderTable extends StatelessWidget {
                           // ======================================================
 
                           Tooltip(
-                            message: 'View Order',
+                            message: 'view Order',
                             child: IconButton(
                               onPressed: () {
                                 onView(order);

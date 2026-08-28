@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/theme/app_colors.dart';
-import '../Modal/product_modal.dart';
-import '../ViewModal/delete_product_dialog.dart';
-import '../ViewModal/edit_product_dialog.dart';
+import '../modal/product_modal.dart';
+import '../viewmodal/delete_product_dialog.dart';
+import '../viewmodal/edit_product_dialog.dart';
 
 
 class ProductTable extends StatelessWidget {

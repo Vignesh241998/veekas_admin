@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:veekas_ecommerce_app/features/product/ViewModal/product_view_modal.dart';
+import 'package:veekas_ecommerce_app/features/product/viewmodal/product_view_modal.dart';
 
-import '../Modal/product_modal.dart';
+import '../modal/product_modal.dart';
 
 class DeleteProductDialog extends ConsumerStatefulWidget {
   final ProductModel product;

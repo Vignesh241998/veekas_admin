@@ -1,7 +1,7 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
-import '../Modal/sub_category_modal.dart';
+import '../modal/sub_category_modal.dart';
 import '../repository/sub_category_repository.dart';
 
 
@@ -56,8 +56,7 @@ class SubCategoryViewModel
 
       state = const AsyncLoading();
 
-      final subCategories =
-      await _repository.getSubCategories();
+      final subCategories = await _repository.getSubCategories();
 
       state = AsyncData(
         subCategories,

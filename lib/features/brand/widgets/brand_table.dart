@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/theme/app_colors.dart';
-import '../Modal/brand_modal.dart';
-import '../ViewModal/brand_view_modal.dart';
+import '../modal/brand_modal.dart';
+import '../viewmodal/brand_view_modal.dart';
 import '../view/edit_brand_dialog.dart';
 
 class BrandTable extends StatelessWidget {

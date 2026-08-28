@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/theme/app_colors.dart';
-import '../ViewModal/brand_view_modal.dart';
-import '../Widgets/brand_table.dart';
+import '../viewmodal/brand_view_modal.dart';
+import '../widgets/brand_table.dart';
 import 'add_brand_dialog.dart';
 
 

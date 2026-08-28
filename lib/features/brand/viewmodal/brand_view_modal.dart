@@ -1,7 +1,7 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
-import '../Modal/brand_modal.dart';
+import '../modal/brand_modal.dart';
 import '../repository/brand_repository.dart';
 
 // ============================================================

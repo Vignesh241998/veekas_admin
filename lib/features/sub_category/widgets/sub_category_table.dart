@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/theme/app_colors.dart';
-import '../Modal/sub_category_modal.dart';
-import '../ViewModal/sub_category_view_model.dart';
-import '../Views/edit_sub_category_dialog.dart';
+import '../modal/sub_category_modal.dart';
+import '../viewmodal/sub_category_view_model.dart';
+import '../views/edit_sub_category_dialog.dart';
 
 
 class SubCategoryTable extends ConsumerWidget {

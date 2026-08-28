@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 
-import '../../../product/Modal/product_modal.dart';
+import '../../../product/modal/product_modal.dart';
 import '../repository/customer_product_repository.dart';
 
 // ============================================================

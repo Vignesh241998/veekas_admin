@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:veekas_ecommerce_app/features/Admin_Home_Screen/admin_home_screen.dart';
 
+import '../../features/admin_home/admin_home_screen.dart';
 import '../../features/auth/view/login_screen.dart';
 import '../../features/auth/view/register_screen.dart';
 import '../../features/auth/view/splash_screen.dart';

@@ -3,7 +3,7 @@ import 'package:file_picker/file_picker.dart';
 
 import '../../../core/api/api_constants.dart';
 import '../../../core/api/dio_client.dart';
-import '../Modal/sub_category_modal.dart';
+import '../modal/sub_category_modal.dart';
 
 class SubCategoryRepository {
   final Dio _dio = DioClient.instance;

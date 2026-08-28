@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 import '../../../../core/api/api_constants.dart';
 import '../../../../core/api/dio_client.dart';
-import '../../../product/Modal/product_modal.dart';
+import '../../../product/modal/product_modal.dart';
 
 
 class CustomerProductRepository {

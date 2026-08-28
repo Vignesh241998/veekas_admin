@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../product/Modal/product_modal.dart';
+import '../../../product/modal/product_modal.dart';
 
 import '../../../product_image/modal/product_image_modal.dart';
 import '../../../product_image/viewmodal/product_view_modal.dart';

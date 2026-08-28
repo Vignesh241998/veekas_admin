@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../category/model/category_model.dart';
 import '../../category/viewmodel/category_view_model.dart';
-import '../Modal/sub_category_modal.dart';
-import '../ViewModal/sub_category_view_model.dart';
+import '../modal/sub_category_modal.dart';
+import '../viewmodal/sub_category_view_model.dart';
 
 
 class EditSubCategoryDialog extends ConsumerStatefulWidget {

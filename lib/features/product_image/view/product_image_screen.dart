@@ -328,7 +328,7 @@ class _ProductImageScreenState
           SizedBox(height: 12),
 
           Text(
-            'Select a product to View its images',
+            'Select a product to view its images',
             style: TextStyle(
               fontSize: 16,
               color: Colors.grey,

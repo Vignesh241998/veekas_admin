@@ -2,7 +2,7 @@
 //
 // import '../../../core/theme/app_colors.dart';
 // import '../model/category_model.dart';
-// import '../View/edit_category_dialog.dart';
+// import '../view/edit_category_dialog.dart';
 //
 // class CategoryTable extends StatelessWidget {
 //   final List<CategoryModel> categories;

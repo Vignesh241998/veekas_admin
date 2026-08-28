@@ -3,7 +3,7 @@ import 'package:file_picker/file_picker.dart';
 
 import '../../../core/api/api_constants.dart';
 import '../../../core/api/dio_client.dart';
-import '../Modal/product_modal.dart';
+import '../modal/product_modal.dart';
 
 class ProductRepository {
   final Dio _dio = DioClient.instance;

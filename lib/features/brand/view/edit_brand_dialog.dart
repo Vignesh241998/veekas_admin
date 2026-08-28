@@ -2,28 +2,31 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../ViewModal/brand_view_modal.dart';
+import '../modal/brand_modal.dart';
+import '../viewmodal/brand_view_modal.dart';
 
 
-class AddBrandDialog extends ConsumerStatefulWidget {
-  const AddBrandDialog({
+class EditBrandDialog extends ConsumerStatefulWidget {
+  final BrandModel brand;
+
+  const EditBrandDialog({
     super.key,
+    required this.brand,
   });
 
   @override
-  ConsumerState<AddBrandDialog> createState() =>
-      _AddBrandDialogState();
+  ConsumerState<EditBrandDialog> createState() =>
+      _EditBrandDialogState();
 }
 
-class _AddBrandDialogState
-    extends ConsumerState<AddBrandDialog> {
+class _EditBrandDialogState
+    extends ConsumerState<EditBrandDialog> {
 
   // ============================================================
-  // CONTROLLERS
+  // CONTROLLER
   // ============================================================
 
-  final TextEditingController _brandNameController =
-  TextEditingController();
+  late TextEditingController _brandNameController;
 
   // ============================================================
   // VARIABLES
@@ -32,6 +35,20 @@ class _AddBrandDialogState
   PlatformFile? _selectedImage;
 
   bool _isLoading = false;
+
+  // ============================================================
+  // INIT
+  // ============================================================
+
+  @override
+  void initState() {
+    super.initState();
+
+    _brandNameController =
+        TextEditingController(
+          text: widget.brand.brandName,
+        );
+  }
 
   // ============================================================
   // DISPOSE
@@ -49,7 +66,8 @@ class _AddBrandDialogState
 
   Future<void> _pickImage() async {
     try {
-      final result = await FilePicker.platform.pickFiles(
+      final result =
+      await FilePicker.platform.pickFiles(
         type: FileType.image,
         withData: true,
       );
@@ -58,7 +76,8 @@ class _AddBrandDialogState
           result.files.isNotEmpty) {
 
         setState(() {
-          _selectedImage = result.files.first;
+          _selectedImage =
+              result.files.first;
         });
       }
     } catch (e) {
@@ -69,17 +88,17 @@ class _AddBrandDialogState
   }
 
   // ============================================================
-  // ADD BRAND
+  // UPDATE BRAND
   // ============================================================
 
-  Future<void> _addBrand() async {
-
-    // ----------------------------------------------------------
-    // VALIDATE BRAND NAME
-    // ----------------------------------------------------------
+  Future<void> _updateBrand() async {
 
     final brandName =
     _brandNameController.text.trim();
+
+    // ----------------------------------------------------------
+    // VALIDATION
+    // ----------------------------------------------------------
 
     if (brandName.isEmpty) {
       _showError(
@@ -105,9 +124,11 @@ class _AddBrandDialogState
       final success =
       await ref
           .read(
-        brandViewModelProvider.notifier,
+        brandViewModelProvider
+            .notifier,
       )
-          .addBrand(
+          .updateBrand(
+        brandId: widget.brand.id,
         brandName: brandName,
         image: _selectedImage,
       );
@@ -122,12 +143,14 @@ class _AddBrandDialogState
 
         Navigator.pop(context);
 
-        ScaffoldMessenger.of(context).showSnackBar(
+        ScaffoldMessenger.of(context)
+            .showSnackBar(
           const SnackBar(
             content: Text(
-              "Brand added successfully",
+              "Brand updated successfully",
             ),
-            backgroundColor: Colors.green,
+            backgroundColor:
+            Colors.green,
           ),
         );
       }
@@ -159,14 +182,14 @@ class _AddBrandDialogState
   }
 
   // ============================================================
-  // ERROR MESSAGE
+  // ERROR
   // ============================================================
 
   void _showError(
       String message,
       ) {
-
-    ScaffoldMessenger.of(context).showSnackBar(
+    ScaffoldMessenger.of(context)
+        .showSnackBar(
       SnackBar(
         content: Text(message),
         backgroundColor: Colors.red,
@@ -185,7 +208,7 @@ class _AddBrandDialogState
 
     return AlertDialog(
       title: const Text(
-        "Add Brand",
+        "Edit Brand",
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
@@ -208,7 +231,8 @@ class _AddBrandDialogState
               const Text(
                 "Brand Name",
                 style: TextStyle(
-                  fontWeight: FontWeight.w600,
+                  fontWeight:
+                  FontWeight.w600,
                 ),
               ),
 
@@ -242,23 +266,20 @@ class _AddBrandDialogState
               ),
 
               // =================================================
-              // IMAGE LABEL
+              // IMAGE
               // =================================================
 
               const Text(
                 "Brand Image",
                 style: TextStyle(
-                  fontWeight: FontWeight.w600,
+                  fontWeight:
+                  FontWeight.w600,
                 ),
               ),
 
               const SizedBox(
                 height: 8,
               ),
-
-              // =================================================
-              // IMAGE PICKER
-              // =================================================
 
               GestureDetector(
                 onTap: _isLoading
@@ -284,8 +305,8 @@ class _AddBrandDialogState
 
                   child:
                   _selectedImage != null
-                      ? _buildImagePreview()
-                      : _buildImagePicker(),
+                      ? _buildSelectedImage()
+                      : _buildExistingImage(),
                 ),
               ),
             ],
@@ -294,7 +315,7 @@ class _AddBrandDialogState
       ),
 
       // ========================================================
-      // ACTIONS
+      // BUTTONS
       // ========================================================
 
       actions: [
@@ -318,14 +339,13 @@ class _AddBrandDialogState
         ),
 
         // ------------------------------------------------------
-        // ADD BRAND
+        // UPDATE
         // ------------------------------------------------------
 
         ElevatedButton(
-          onPressed:
-          _isLoading
+          onPressed: _isLoading
               ? null
-              : _addBrand,
+              : _updateBrand,
 
           child: SizedBox(
             width: 90,
@@ -344,7 +364,7 @@ class _AddBrandDialogState
                 ),
               )
                   : const Text(
-                "Add Brand",
+                "Update",
               ),
             ),
           ),
@@ -354,60 +374,128 @@ class _AddBrandDialogState
   }
 
   // ============================================================
-  // IMAGE PICKER UI
+  // EXISTING IMAGE
   // ============================================================
 
-  Widget _buildImagePicker() {
+  Widget _buildExistingImage() {
 
-    return const Column(
-      mainAxisAlignment:
-      MainAxisAlignment.center,
+    if (widget.brand.brandImage
+        .isEmpty) {
 
-      children: [
+      return const Column(
+        mainAxisAlignment:
+        MainAxisAlignment.center,
 
-        Icon(
-          Icons.cloud_upload_outlined,
-          size: 45,
-          color: Colors.grey,
-        ),
+        children: [
 
-        SizedBox(
-          height: 10,
-        ),
-
-        Text(
-          "Click to select image",
-          style: TextStyle(
+          Icon(
+            Icons.cloud_upload_outlined,
+            size: 45,
             color: Colors.grey,
           ),
-        ),
 
-        SizedBox(
-          height: 5,
-        ),
-
-        Text(
-          "JPG, JPEG or PNG",
-          style: TextStyle(
-            color: Colors.grey,
-            fontSize: 12,
+          SizedBox(
+            height: 10,
           ),
-        ),
-      ],
-    );
-  }
 
-  // ============================================================
-  // IMAGE PREVIEW
-  // ============================================================
-
-  Widget _buildImagePreview() {
+          Text(
+            "Click to select image",
+            style: TextStyle(
+              color: Colors.grey,
+            ),
+          ),
+        ],
+      );
+    }
 
     return Stack(
       children: [
 
         // ------------------------------------------------------
-        // IMAGE
+        // EXISTING IMAGE
+        // ------------------------------------------------------
+
+        Positioned.fill(
+          child: ClipRRect(
+            borderRadius:
+            BorderRadius.circular(
+              8,
+            ),
+
+            child: Image.network(
+              widget.brand.brandImage,
+              fit: BoxFit.contain,
+
+              errorBuilder:
+                  (
+                  context,
+                  error,
+                  stackTrace,
+                  ) {
+                return const Center(
+                  child: Icon(
+                    Icons
+                        .image_not_supported,
+                    color: Colors.red,
+                    size: 40,
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+
+        // ------------------------------------------------------
+        // CHANGE IMAGE INDICATOR
+        // ------------------------------------------------------
+
+        if (!_isLoading)
+          Positioned(
+            right: 8,
+            bottom: 8,
+
+            child: Container(
+              padding:
+              const EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 6,
+              ),
+
+              decoration:
+              BoxDecoration(
+                color: Colors.black
+                    .withOpacity(0.65),
+
+                borderRadius:
+                BorderRadius.circular(
+                  6,
+                ),
+              ),
+
+              child: const Text(
+                "Click to change",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                ),
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+
+  // ============================================================
+  // SELECTED NEW IMAGE
+  // ============================================================
+
+  Widget _buildSelectedImage() {
+
+    return Stack(
+      children: [
+
+        // ------------------------------------------------------
+        // NEW IMAGE
         // ------------------------------------------------------
 
         Positioned.fill(
@@ -425,7 +513,7 @@ class _AddBrandDialogState
         ),
 
         // ------------------------------------------------------
-        // REMOVE IMAGE BUTTON
+        // REMOVE NEW IMAGE
         // ------------------------------------------------------
 
         if (!_isLoading)
@@ -437,7 +525,8 @@ class _AddBrandDialogState
               onTap: () {
 
                 setState(() {
-                  _selectedImage = null;
+                  _selectedImage =
+                  null;
                 });
               },
 
